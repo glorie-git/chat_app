@@ -1,3 +1,5 @@
+import 'package:chat_app/widgets/chat_bubble.dart';
+import 'package:chat_app/widgets/chat_input.dart';
 import 'package:flutter/material.dart';
 
 class ChatPage extends StatelessWidget {
@@ -19,102 +21,16 @@ class ChatPage extends StatelessWidget {
       ),
       body: Column(
         children: [
-          Flexible (
+          Expanded (
             child: ListView(
-              children: [
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Container(
-                    padding: const EdgeInsets.all(18),
-                    margin: const EdgeInsets.all(50),
-                    decoration: const BoxDecoration(
-                      color: Colors.grey,
-                      borderRadius: BorderRadius.only(topLeft: Radius.circular(12), topRight: Radius.circular(12), bottomRight: Radius.circular(12))
-                    ),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        const Text("Hi, this is a new message",
-                          style: TextStyle(
-                              fontSize: 20,
-                              color: Colors.white
-                          ),
-                        ),
-                        Image.network('https://images.pexels.com/photos/20501641/pexels-photo-20501641.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-                          height: 100,)
-                      ],
-                    ),
-                  ),
-                ),
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: Container(
-                    padding: const EdgeInsets.all(18),
-                    margin: const EdgeInsets.all(50),
-                    decoration: const BoxDecoration(
-                        color: Colors.grey,
-                        borderRadius: BorderRadius.only(topLeft: Radius.circular(12), topRight: Radius.circular(12), bottomRight: Radius.circular(12))
-                    ),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        const Text("Hi, this is a new message",
-                          style: TextStyle(
-                              fontSize: 20,
-                              color: Colors.white
-                          ),
-                        ),
-                        Image.network('https://images.pexels.com/photos/20501641/pexels-photo-20501641.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-                          height: 100,)
-                      ],
-                    ),
-                  ),
-                ),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Container(
-                    padding: const EdgeInsets.all(18),
-                    margin: const EdgeInsets.all(50),
-                    decoration: const BoxDecoration(
-                        color: Colors.grey,
-                        borderRadius: BorderRadius.only(topLeft: Radius.circular(12), topRight: Radius.circular(12), bottomRight: Radius.circular(12))
-                    ),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        const Text("Hi, this is a new message",
-                          style: TextStyle(
-                              fontSize: 20,
-                              color: Colors.white
-                          ),
-                        ),
-                        Image.network('https://images.pexels.com/photos/20501641/pexels-photo-20501641.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-                          height: 100,)
-                      ],
-                    ),
-                  ),
-                ),
+              children: const [
+                ChatBubble(alignment: Alignment.centerLeft, message: 'Hello'),
+                ChatBubble(alignment: Alignment.centerRight, message: 'Hey! How are you?'),
+                ChatBubble(alignment: Alignment.centerLeft, message: 'I am good. And yourself?')
               ],
             ),
           ),
-          Container(
-            height: 100,
-            decoration: const BoxDecoration(
-                color: Colors.black,
-                borderRadius: BorderRadius.vertical(top: Radius.circular(20))
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                IconButton(
-                    onPressed: () {}, icon:
-                const Icon(Icons.add, color: Colors.white)),
-                IconButton(
-                    onPressed: () {}, icon:
-                const Icon(Icons.send, color: Colors.white))
-              ],
-            ),
-          )
+          const ChatInput()
         ],
       ),
     );
